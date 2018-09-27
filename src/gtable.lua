@@ -4,9 +4,10 @@
 -- License: MIT
 
 local M = {
-    __VERSION = '0.0.1',
+    __VERSION = "0.0.1",
     __DESCRIPTION = "A small helper library about tables",
-    __LICENCE = [[
+    __URL = "https://github.com/gvre/lua-gtable",
+    __LICENSE = [[
     The MIT License (MIT)
     Copyright (c) 2018 Giannis Vrentzos
     Permission is hereby granted, free of charge, to any person obtaining a copy
