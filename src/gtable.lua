@@ -4,7 +4,7 @@
 -- License: MIT
 
 local M = {
-    __VERSION = "0.0.1",
+    __VERSION = "0.0.2",
     __DESCRIPTION = "A small helper library about tables",
     __URL = "https://github.com/gvre/lua-gtable",
     __LICENSE = [[
