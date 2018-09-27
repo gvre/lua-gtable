@@ -1,5 +1,5 @@
 # lua-gtable
-A small helper library about tables.
+A small helper library about tables (WIP).
 
 ## Installation
 Copy the file `src/gtable.lua` to your project.
