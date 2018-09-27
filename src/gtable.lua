@@ -54,4 +54,16 @@ function M.append(a, b)
     end
 end
 
+function M.is_table(t)
+    return type(t) == "table"
+end
+
+function M.is_empty(t)
+    return M.is_table(t) and #t == 0
+end
+
+function M.key_exists(k, t)
+    return M.is_table(t) and t[k] ~= nil
+end
+
 return M
