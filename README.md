@@ -15,4 +15,5 @@ Prepends the values of the second table to the first one
 Appends the values of the second table to the first one
 
 ## Testing
+You need `luacheck` and `luaunit` to lint and test the code.
 Run `make` to lint and test the code.
