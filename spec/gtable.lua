@@ -103,21 +103,21 @@ end
 function test_it_should_return_true_when_table_key_exists()
     local t = {["k"] = "v"}
 
-    luaunit.assertTrue(gtable.key_exists("k", t))
+    luaunit.assertTrue(gtable.key_exists(t, "k"))
 end
 
 function test_it_should_return_false_when_table_key_does_not_exist()
     local t = {["k"] = "v"}
 
-    luaunit.assertFalse(gtable.key_exists("a", t))
+    luaunit.assertFalse(gtable.key_exists(t, "a"))
 end
 
 function test_it_should_return_false_when_checking_for_key_in_an_int()
-    luaunit.assertFalse(gtable.key_exists("a", 1))
+    luaunit.assertFalse(gtable.key_exists(1, "a"))
 end
 
 function test_it_should_return_false_when_checking_for_key_in_a_string()
-    luaunit.assertFalse(gtable.key_exists("a", "table"))
+    luaunit.assertFalse(gtable.key_exists("table", "a"))
 end
 
 function test_it_should_return_false_when_table_does_not_contain_the_given_value()
