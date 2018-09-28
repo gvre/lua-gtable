@@ -20,7 +20,7 @@ Checks if the given parameter is a table
 * gtable.<code>is_empty(object:table):boolean</code><br />
 Checks if the given parameter is an empty table
 
-* gtable.<code>key_exists(key:string, object:table):boolean</code><br />
+* gtable.<code>key_exists(object:table, key:string):boolean</code><br />
 Checks if the given parameter exists as a key in the given table
 
 * gtable.<code>find(object:table, v, start:int):int|boolean</code><br />
