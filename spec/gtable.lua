@@ -120,4 +120,28 @@ function test_it_should_return_false_when_checking_for_key_in_a_string()
     luaunit.assertFalse(gtable.key_exists("a", "table"))
 end
 
+function test_it_should_return_false_when_table_does_not_contain_the_given_value()
+    luaunit.assertFalse(gtable.find({"a", "b"}, "z"))
+end
+
+function test_it_should_return_zero_when_table_contains_the_given_value_but_before_the_start_position()
+    luaunit.assertEquals(0, gtable.find({"a", "b", "c"}, "a", 2))
+end
+
+function test_it_should_return_the_position_of_the_given_parameter()
+    luaunit.assertEquals(2, gtable.find({"a", "b"}, "b"))
+end
+
+function test_it_should_return_zero_when_table_contains_the_given_value_but_before_the_start_position()
+    luaunit.assertEquals(2, gtable.find({"a", "b", "c"}, "b", 2))
+end
+
+function test_it_should_return_false_if_start_position_is_more_than_table_size()
+    luaunit.assertFalse(gtable.find({"a", "b", "c"}, "b", 4))
+end
+
+function test_it_should_ignore_negative_start_values()
+    luaunit.assertEquals(2, gtable.find({"a", "b", "c"}, "b", -1))
+end
+
 os.exit( luaunit.LuaUnit.run() )

@@ -23,5 +23,8 @@ Checks if the given parameter is an empty table
 * gtable.<code>key_exists(key:string, object:table):boolean</code><br />
 Checks if the given parameter exists as a key in the given table
 
+* gtable.<code>find(object:table, v, start:int):int|boolean</code><br />
+Searches the table for a given value and returns the first corresponding key if successful
+
 ## Testing
 Run `make` to lint and test the code (you need `luacheck` and `luaunit`)

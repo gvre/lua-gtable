@@ -66,4 +66,23 @@ function M.key_exists(k, t)
     return M.is_table(t) and t[k] ~= nil
 end
 
+-- Searches the table for a given value and returns the first corresponding key if successful
+-- @param t table: The table to search
+-- @param v (any comparable data type): The value to search
+-- @param start int: Position to start searching from (optional, default 1)
+-- @return int or bool: Value's position if exists, otherwise false
+function M.find(t, v, start)
+    if not start or start < 1 then
+        start = 1
+    end
+
+    for i = start, #t do
+        if t[i] == v then
+            return i
+        end
+    end
+
+    return false
+end
+
 return M
