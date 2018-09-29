@@ -26,5 +26,14 @@ Checks if the given parameter exists as a key in the given table
 * gtable.<code>find(object:table, v, start:int):int|boolean</code><br />
 Searches the table for a given value and returns the first corresponding key if successful
 
+* gtable.<code>reverse(object:table):object:table</code><br />
+Reverses the table
+
+* gtable.<code>filter(object:table, callback:function):object:table</code><br />
+Returns a new table with all values that pass the callback filter function
+
+* gtable.<code>filter_map(object:table, callback:function):object:table</code><br />
+Returns a new table with all keys and values that pass the callback filter function
+
 ## Testing
 Run `make` to lint and test the code (you need `luacheck` and `luaunit`)
