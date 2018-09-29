@@ -85,4 +85,46 @@ function M.find(t, v, start)
     return false
 end
 
+function M.reverse(t)
+    local res = {}
+
+    for i = #t, 1, -1 do
+        table.insert(res, t[i])
+    end
+
+    return res
+end
+
+function M.filter(t, callback)
+    callback = callback or function(v, k)
+        return v
+    end
+
+    local res = {}
+
+    for i = 1, #t do
+        if callback(t[i], i) then
+            table.insert(res, t[i])
+        end
+    end
+
+    return res
+end
+
+function M.filter_map(t, callback)
+    callback = callback or function(v, k)
+        return v
+    end
+
+    local res = {}
+
+    for k, v in pairs(t) do
+        if callback(v, k) then
+            res[k] = v
+        end
+    end
+
+    return res
+end
+
 return M

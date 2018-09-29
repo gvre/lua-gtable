@@ -144,4 +144,63 @@ function test_it_should_ignore_negative_start_values()
     luaunit.assertEquals(2, gtable.find({"a", "b", "c"}, "b", -1))
 end
 
+function test_it_should_reverse_an_empty_table()
+    luaunit.assertEquals({}, gtable.reverse({}))
+end
+
+function test_it_should_reverse_a_table_with_one_item()
+    local t = {1}
+
+    luaunit.assertEquals({1}, gtable.reverse(t))
+end
+
+function test_it_should_reverse_a_table()
+    local t = {1, 2}
+
+    luaunit.assertEquals({2, 1}, gtable.reverse(t))
+end
+
+function test_it_should_remove_empty_values_using_the_default_callback()
+    local t = {1, false, nil, 2}
+
+    luaunit.assertEquals({1, 2}, gtable.filter(t))
+end
+
+function test_it_should_remove_values_with_key_less_than_three()
+    local t = {1, 2, 3, 4, 5}
+    local callback = function(v, k)
+        return k > 3
+    end
+
+    luaunit.assertEquals({4, 5}, gtable.filter(t, callback))
+end
+
+function test_it_should_remove_values_less_that_three()
+    local t = {1, 2, 3, 4, 5}
+    local callback = function(v)
+        return v > 3
+    end
+
+    luaunit.assertEquals({4, 5}, gtable.filter(t, callback))
+end
+
+function test_it_should_remove_all_values()
+    local t = {1, 2, 3, 4, 5}
+    local callback = function(v)
+        return v > 10
+    end
+
+    luaunit.assertEquals({}, gtable.filter(t, callback))
+end
+
+function test_it_should_remove_an_item_with_specific_key()
+    local expected = {["k2"] = "v2", ["k3"] = "v3"}
+    local t = {["k1"] = "v1", ["k2"] = "v2", ["k3"] = "v3"}
+    local callback = function(v, k)
+        return k ~= "k1"
+    end
+
+    luaunit.assertEquals(expected, gtable.filter_map(t, callback))
+end
+
 os.exit( luaunit.LuaUnit.run() )
